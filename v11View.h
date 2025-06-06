@@ -10,6 +10,14 @@ protected: // create from serialization only
 public:
 	Cv11Doc* GetDocument() const;
 
+	void OnLButtonDown(UINT f, CPoint p);
+
+	void OnColor();
+
+	LRESULT OnHighlightRibbonListItem(WPARAM wp, LPARAM lp);
+
+	void OnShape();
+
 // Operations
 public:
 
@@ -39,6 +47,12 @@ protected:
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
 public:
+	CRect rc;
+	COLORREF color;
+	COLORREF pen_color;
+	int shape;
+	COLORREF color_preview;
+	int shape_preview;
 };
 
 #ifndef _DEBUG  // debug version in v11View.cpp
